@@ -1,0 +1,33 @@
+# Data — never commit ingested/generated data
+data/
+*.parquet
+*.json.gz
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.env
+
+# Test / type / lint caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+profiles.yml
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store

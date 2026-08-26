@@ -1,0 +1,42 @@
+[project]
+name = "github-events-pipeline"
+version = "0.1.0"
+description = "Batch ELT pipeline over the GH Archive public event stream"
+requires-python = ">=3.11"
+dependencies = [
+    "requests>=2.31",
+    "pyarrow>=15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+    "mypy>=1.10",
+    "types-requests",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.11"
+mypy_path = "src"
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[[tool.mypy.overrides]]
+module = ["pyarrow.*"]
+ignore_missing_imports = true
